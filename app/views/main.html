@@ -1,0 +1,45 @@
+<h1 class="text-center">Return to Babel</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <span class="navbar-text">Your current user name is {{name}}</span>
+    <form class="navbar-form pull-right" ng-submit="changeName()">
+      <div class="input-append">
+        <input type="text" class="span2" ng-model="newName"/>
+        <button class="btn" type="submit"><i class="icon-user"/> Change Name</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span3">
+    <div class="well">
+      <h3>Users</h3>
+      <div class="overflowable">
+        <ul class="unstyled">
+          <li ng-repeat="user in users">{{user.name}} ({{user.languageName}})</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="span9">
+    <div class="row-fluid">
+      <div class="well">
+        <h3>Messages</h3>
+        <div class="overflowable" id="messages">
+          <p ng-repeat="message in messages" ng-class="{alert: message.user == &quot;chatroom&quot;}">{{message.user}}: {{message.text}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="well well-small">
+        <form class="form-inline" ng-submit="sendMessage()">
+          <label>Message:</label>
+          <div class="input-append">
+            <input type="text" class="input-xxlarge" size="60" ng-model="message"/>
+            <button class="btn" type="submit"><i class="icon-comment"/> Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
